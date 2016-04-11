@@ -18,26 +18,44 @@ class UserObserver extends ReLogoObserver{
 		setDefaultShape(Rat, "rabbit");
 		setDefaultShape(Food, "plant")
 		createRats(5){
-			setxy(randomXcor(), randomYcor());
 			setColor(blue());
 			sex = Rat.Sex.MALE;
+			if(random(1) == 0) {
+				setxy(randomXcor(), getAvenueY(random(1)))
+			} else {
+				setxy(getStreetX(random(2)), randomYcor());
+			}
+			setHeading(random(3) * 90);
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
 		createRats(5){
 			setColor(pink());
-			setxy(randomXcor(), randomYcor());
 			sex = Rat.Sex.FEMALE;
+			if(random(1) == 0) {
+				setxy(randomXcor(), getAvenueY(random(1)))
+			} else {
+				setxy(getStreetX(random(2)), randomYcor());
+			}
+			setHeading(random(3) * 90);
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
 		for (int i = 0; i < 6; i++){
 			createFood(1){
-				def xFactor = Math.floor(i/2) + 1;
-				def yFactor = i%2 + 1;
-				def x = worldWidth() / 3.0 * xFactor + getMinPxcor() + worldWidth() / 6.0;
-				def y = worldHeight() / 2.0 * yFactor + getMinPycor() + worldHeight() / 4.0;
+				def xFactor = Math.floor(i/2);
+				def yFactor = i%2;
+				def x = getStreetX(xFactor);
+				def y = getAvenueY(yFactor);
 				setxy(x, y);
 			}
 		}
+	}
+	
+	def getStreetX(streetNumber) {
+		return worldWidth() / 3.0 * (streetNumber + 1) + getMinPxcor() + worldWidth() / 6.0;
+	}
+	
+	def getAvenueY(avenueNumber) {
+		return worldHeight() / 2.0 * (avenueNumber + 1) + getMinPycor() + worldHeight() / 4.0;
 	}
 	
 	@Go
