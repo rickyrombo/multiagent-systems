@@ -19,16 +19,24 @@ class UserObserver extends ReLogoObserver{
 		setDefaultShape(Food, "plant")
 		createRats(5){
 			setxy(randomXcor(), randomYcor());
+			setColor(blue());
 			sex = Rat.Sex.MALE;
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
 		createRats(5){
+			setColor(pink());
 			setxy(randomXcor(), randomYcor());
 			sex = Rat.Sex.FEMALE;
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
-		createFood(6){
-			setxy(randomXcor(), randomYcor());
+		for (int i = 0; i < 6; i++){
+			createFood(1){
+				def xFactor = Math.floor(i/2) + 1;
+				def yFactor = i%2 + 1;
+				def x = worldWidth() / 3.0 * xFactor + getMinPxcor() + worldWidth() / 6.0;
+				def y = worldHeight() / 2.0 * yFactor + getMinPycor() + worldHeight() / 4.0;
+				setxy(x, y);
+			}
 		}
 	}
 	

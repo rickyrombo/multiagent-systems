@@ -41,6 +41,7 @@ class Rat extends ReLogoTurtle {
 	def step() {
 		if (age++ > 50000 || timeSinceLastMeal++ > 1000){
 			die();
+			return;
 		}
 		if (hungerFactor() >= sexualDesireFactor()) {
 			goal = Goal.FOOD;
@@ -100,7 +101,7 @@ class Rat extends ReLogoTurtle {
 	
 	def checkForMates(rats) {
 		for (Rat rat in rats) {
-			if (rat.sex != sex && rat.goal == Goal.SEX && rat.mode == Mode.EXPLORE) {
+			if (rat.sex != sex && rat.goal == Goal.MATE && rat.mode == Mode.EXPLORE) {
 				mate(rat);
 				rat.mate(this);
 				break;
@@ -113,7 +114,7 @@ class Rat extends ReLogoTurtle {
 	}
 	
 	def sexualDesireFactor() {
-		return age < 25000 ? 0 : 0.5 + 0.00004 * age;
+		return age < 25000 ? 0 : 0.5 + 1/25000 * (age - 25000);
 	}
 	
 	def aggressivenessFactor() {
@@ -137,7 +138,7 @@ class Rat extends ReLogoTurtle {
 	}
 	
 	def eat(Food food){
-		if (food.foodItems-- == 0) {
+		if (--food.foodItems <= 0) {
 			food.die();
 		}
 		mode = Mode.EAT;
