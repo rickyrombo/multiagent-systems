@@ -1,5 +1,6 @@
 package rats.relogo
 
+import rats.relogo.turtles.*;
 import static repast.simphony.relogo.Utility.*;
 import static repast.simphony.relogo.UtilityG.*;
 import repast.simphony.relogo.Stop;
@@ -11,6 +12,33 @@ import rats.ReLogoObserver;
 
 class UserObserver extends ReLogoObserver{
 
+	@Setup
+	def setup() {
+		clearAll();
+		setDefaultShape(Rat, "rabbit");
+		setDefaultShape(Food, "plant")
+		createRats(5){
+			setxy(randomXcor(), randomYcor());
+			sex = Rat.Sex.MALE;
+			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
+		}
+		createRats(5){
+			setxy(randomXcor(), randomYcor());
+			sex = Rat.Sex.FEMALE;
+			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
+		}
+		createFood(6){
+			setxy(randomXcor(), randomYcor());
+		}
+	}
+	
+	@Go
+	def go() {
+		ask(rats()){
+			step();
+		}
+	}
+	
 	/**
 	 * Add observer methods here. For example:
 

@@ -128,6 +128,119 @@ public class ReLogoLink<T> extends BaseLink<T>	{
 	}
 
 	/**
+	 * Returns an agentset of food on a given patch.
+	 * 
+	 * @param p
+	 *            a patch
+	 * @return agentset of food on patch p
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public AgentSet<rats.relogo.turtles.Food> foodOn(Patch p){
+		AgentSet<rats.relogo.turtles.Food> result = new AgentSet<rats.relogo.turtles.Food>();						
+		for (Turtle t : Utility.getTurtlesOnGridPoint(p.getGridLocation(),getMyObserver(),"food")){
+			if (t instanceof rats.relogo.turtles.Food)
+			result.add((rats.relogo.turtles.Food)t);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of food on the same patch as a turtle.
+	 * 
+	 * @param t
+	 *            a turtle
+	 * @return agentset of food on the same patch as turtle t
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public AgentSet<rats.relogo.turtles.Food> foodOn(Turtle t){
+		AgentSet<rats.relogo.turtles.Food> result = new AgentSet<rats.relogo.turtles.Food>();						
+		for (Turtle tt : Utility.getTurtlesOnGridPoint(Utility.ndPointToGridPoint(t.getTurtleLocation()),getMyObserver(),"food")){
+			if (tt instanceof rats.relogo.turtles.Food)
+			result.add((rats.relogo.turtles.Food)tt);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of food on the patches in a collection or on the patches
+	 * that a collection of turtles are.
+	 * 
+	 * @param a
+	 *            a collection
+	 * @return agentset of food on the patches in collection a or on the patches
+	 *         that collection a turtles are
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public AgentSet<rats.relogo.turtles.Food> foodOn(Collection c){
+
+		if (c == null || c.isEmpty()){
+			return new AgentSet<rats.relogo.turtles.Food>();
+		}
+
+		Set<rats.relogo.turtles.Food> total = new HashSet<rats.relogo.turtles.Food>();
+		if (c.iterator().next() instanceof Turtle){
+			for (Object o : c){
+				if (o instanceof Turtle){
+					Turtle t = (Turtle) o;
+					total.addAll(foodOn(t));
+				}
+			}
+		}
+		else {
+			for (Object o : c){
+				if (o instanceof Patch){
+					Patch p = (Patch) o;
+					total.addAll(foodOn(p));
+				}
+			}
+		}
+		return new AgentSet<rats.relogo.turtles.Food>(total);
+	}
+
+	/**
+	 * Queries if object is a food.
+	 * 
+	 * @param o
+	 *            an object
+	 * @return true or false based on whether the object is a food
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public boolean isFoodQ(Object o){
+		return (o instanceof rats.relogo.turtles.Food);
+	}
+
+	/**
+	 * Returns the food with the given who number.
+	 * 
+	 * @param number
+	 *            a number
+	 * @return turtle number
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public rats.relogo.turtles.Food food(Number number){
+		Turtle turtle = Utility.turtleU(number.intValue(), getMyObserver());
+		if (turtle instanceof rats.relogo.turtles.Food)
+			return (rats.relogo.turtles.Food) turtle;
+		return null;
+	}
+
+	/**
+	 * Returns an agentset containing all food.
+	 * 
+	 * @return agentset of all food
+	 */
+	@ReLogoBuilderGeneratedFor("rats.relogo.turtles.Food")
+	public AgentSet<rats.relogo.turtles.Food> food(){
+		AgentSet<rats.relogo.turtles.Food> a = new AgentSet<rats.relogo.turtles.Food>();
+		for (Object e : this.getMyObserver().getContext().getObjects(rats.relogo.turtles.Food.class)) {
+			if (e instanceof rats.relogo.turtles.Food){
+				a.add((rats.relogo.turtles.Food)e);
+			}
+		}
+		return a;
+	}
+
+	/**
 	 * Returns an agentset of userTurtles on a given patch.
 	 * 
 	 * @param p
@@ -294,6 +407,48 @@ public class ReLogoLink<T> extends BaseLink<T>	{
 	@ReLogoBuilderGeneratedFor("rats.relogo.UserLink")
 	public rats.relogo.UserLink userLink(Turtle oneEnd, Turtle otherEnd) {
 		return userLink(oneEnd.getWho(), otherEnd.getWho());
+	}
+
+	/**
+	 * Returns the value of the global variable aggressivenessThreshold.
+	 *
+	 * @return the value of the global variable aggressivenessThreshold
+	 */
+	@ReLogoBuilderGeneratedFor("global: aggressivenessThreshold")
+	public Object getAggressivenessThreshold(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("aggressivenessThreshold");
+	}
+
+	/**
+	 * Sets the value of the global variable aggressivenessThreshold.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: aggressivenessThreshold")
+	public void setAggressivenessThreshold(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("aggressivenessThreshold",value);
+	}
+
+	/**
+	 * Returns the value of the global variable foodCapacity.
+	 *
+	 * @return the value of the global variable foodCapacity
+	 */
+	@ReLogoBuilderGeneratedFor("global: foodCapacity")
+	public Object getFoodCapacity(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("foodCapacity");
+	}
+
+	/**
+	 * Sets the value of the global variable foodCapacity.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: foodCapacity")
+	public void setFoodCapacity(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("foodCapacity",value);
 	}
 
 

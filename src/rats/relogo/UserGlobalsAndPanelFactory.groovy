@@ -23,6 +23,8 @@ public class UserGlobalsAndPanelFactory extends AbstractReLogoGlobalsAndPanelFac
 	        addStateChangeButtonWL("changeSomething","Change Something")
 	        
 		 */
-
+		
+		addSlider("aggressivenessThreshold", 0, 0.1, 1, 0.5);
+		addSlider("foodCapacity", 0, 1, 5, 3);
 	}
 }
