@@ -451,5 +451,26 @@ public class ReLogoLink<T> extends BaseLink<T>	{
 		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("foodCapacity",value);
 	}
 
+	/**
+	 * Returns the value of the global variable foodSourceSpawnFrequency.
+	 *
+	 * @return the value of the global variable foodSourceSpawnFrequency
+	 */
+	@ReLogoBuilderGeneratedFor("global: foodSourceSpawnFrequency")
+	public Object getFoodSourceSpawnFrequency(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("foodSourceSpawnFrequency");
+	}
+
+	/**
+	 * Sets the value of the global variable foodSourceSpawnFrequency.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: foodSourceSpawnFrequency")
+	public void setFoodSourceSpawnFrequency(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("foodSourceSpawnFrequency",value);
+	}
+
 
 }

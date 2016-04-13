@@ -9,6 +9,7 @@ import repast.simphony.relogo.UtilityG;
 import repast.simphony.relogo.schedule.Go;
 import repast.simphony.relogo.schedule.Setup;
 import rats.ReLogoObserver;
+import rats.relogo.scenario.*;
 
 class UserObserver extends ReLogoObserver{
 
@@ -17,46 +18,44 @@ class UserObserver extends ReLogoObserver{
 		clearAll();
 		setDefaultShape(Rat, "rabbit");
 		setDefaultShape(Food, "plant")
-		createRats(5){
+		createRats(1){
+			setLabel("Adam")
 			setColor(blue());
 			sex = Rat.Sex.MALE;
 			setupMovement(it);
+			age = random(1500)
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
-		createRats(5){
+		createRats(1){
+			setLabel("Eve")
 			setColor(pink());
 			sex = Rat.Sex.FEMALE;
 			setupMovement(it);
+			age = random(1500)
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
 		for (int i = 0; i < 6; i++){
 			createFood(1){
-				def intersection = getIntersection(i);
+				def intersection = CityGrid.getIntersection(i, worldWidth(), worldHeight(), getMinPxcor(), getMinPycor());
 				setxy(intersection.x, intersection.y);
 			}
 		}
 	}
 	
 	def setupMovement(Rat rat){
+		def x = Math.round(randomXcor() - worldWidth()/6);
+		def y = Math.round(randomYcor() - worldHeight()/4);
+		def intersection = CityGrid.getIntersection(random(6), worldWidth(), worldHeight(), getMinPxcor(), getMinPycor());
+		rat.setxy(intersection.x, intersection.y);
+		rat.setHeading(random(4) * 90);
+		return;
 		if(random(2) == 0) {
-			rat.setxy(randomXcor(), getAvenueY(random(2)))
+			rat.setxy(x, CityGrid.getStreetY(random(2), worldHeight(), getMinPycor()))
 			rat.setHeading(random(2) * 90);
 		} else {
-			rat.setxy(getStreetX(random(3)), randomYcor());
+			rat.setxy(CityGrid.getAvenueX(random(3), worldWidth(), getMinPxcor()), y);
 			rat.setHeading(random(2) * 180);
 		}
-	}
-	
-	def getIntersection(i) {
-		return [x: getStreetX(Math.floor(i/2)), y: getAvenueY(i % 2)];
-	}
-	
-	def getStreetX(streetNumber) {
-		return worldWidth() / 3.0 * (streetNumber) + getMinPxcor() + worldWidth() / 6.0;
-	}
-	
-	def getAvenueY(avenueNumber) {
-		return worldHeight() / 2.0 * (avenueNumber) + getMinPycor() + worldHeight() / 4.0;
 	}
 	
 	@Go
@@ -65,14 +64,15 @@ class UserObserver extends ReLogoObserver{
 			step();
 		}
 		tick();
-		if (ticks() % 10 == 0) {
+		if (ticks() % foodSourceSpawnFrequency == 0) {
 			def seed = random(6);
 			def i = seed;
-			def intersection = getIntersection(i);
+			def intersection = CityGrid.getIntersection(i, worldWidth(), worldHeight(), getMinPxcor(), getMinPycor());
 			//!anyQ(filter({ intersection.x == it.getXcor() && intersection.y == it.getYcor() }, food()))
-			//foodOn(patch(intersection.x, intersection.y)) > 0
-			while (anyQ(food()) && !anyQ(filter({ intersection.x == it.getXcor() && intersection.y == it.getYcor() && it }, food())) && ++i % 6 != seed) {
-				intersection = getIntersection(i % 6);
+			def foodAtPatch = foodOn(patch(intersection.x, intersection.y));
+			while (anyQ(foodAtPatch) && ++i % 6 != seed) {
+				intersection = CityGrid.getIntersection(i % 6, worldWidth(), worldHeight(), getMinPxcor(), getMinPycor());
+				foodAtPatch = foodOn(patch(intersection.x, intersection.y));
 			}
 			if (i == seed || i % 6 != seed) {
 				this.createFood(1){

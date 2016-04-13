@@ -24,7 +24,8 @@ public class UserGlobalsAndPanelFactory extends AbstractReLogoGlobalsAndPanelFac
 	        
 		 */
 		
-		addSlider("aggressivenessThreshold", 0, 0.1, 1, 0.5);
+		addSlider("aggressivenessThreshold", 0, 0.1, 1, 0.75);
 		addSlider("foodCapacity", 0, 1, 5, 3);
+		addSlider("foodSourceSpawnFrequency", 0, 10, 1000, 100);
 	}
 }

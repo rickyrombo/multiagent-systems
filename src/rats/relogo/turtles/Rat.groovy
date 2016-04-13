@@ -9,6 +9,7 @@ import repast.simphony.relogo.Utility;
 import repast.simphony.relogo.UtilityG;
 import repast.simphony.relogo.schedule.Go;
 import repast.simphony.relogo.schedule.Setup;
+import rats.relogo.scenario.*;
 
 class Rat extends ReLogoTurtle {
 
@@ -25,11 +26,12 @@ class Rat extends ReLogoTurtle {
 	}
 	
 	def mode = Mode.EXPLORE;
-	def mateTime = 0;
-	def fightTime = 0;
-	def eatTime = 0;
+	def actionTime = 0;
 	
-	def defaultActionTime = 10;
+	def final deathAge = 5000;
+	def final hungerDeath = 100;
+	def final maturityAge = 750;
+	def final defaultActionTime = 10;
 	def actionPartner;
 	
 	def age = 0;
@@ -39,37 +41,43 @@ class Rat extends ReLogoTurtle {
 	def Goal goal;
 	
 	def step() {
-		if (age++ > 50000 || timeSinceLastMeal++ > 1000){
+		if (age++ > deathAge || timeSinceLastMeal++ > hungerDeath){
 			die();
 			return;
 		}
-		if (hungerFactor() >= sexualDesireFactor()) {
+		if (hungerFactor >= sexualDesireFactor) {
 			goal = Goal.FOOD;
 		} else {
 			goal = Goal.MATE;
 		}
 		if (mode == Mode.EXPLORE) {
 			explore();
-		} else if(mode == Mode.FIGHT && fightTime-- == 0){
+		} else if(mode == Mode.FIGHT && actionTime-- <= 0){
 			resolveFight();
-		} else if(mode == Mode.EAT && eatTime-- == 0) {
+		} else if(mode == Mode.EAT && actionTime-- <= 0) {
 			timeSinceLastMeal = 0;
 			mode = Mode.EXPLORE;
-		} else if(mode == Mode.MATE && mateTime-- == 0) {
-			hatchRats(random(4));
+		} else if(mode == Mode.MATE && actionTime-- == 0) {
 			mode = Mode.EXPLORE;
+			hatchRats(random(4) + 1){
+				age = 0;
+				timeSinceLastMeal = 0;
+			};
 		}
 	}
 	
 	def explore() {
 		forward(1);
+		if (isOnIntersection()) {
+			heading += random(3) * 90 - 90;
+		}
 		for (neighbor in neighbors()) {
 			def neighborRats = neighbor.ratsOn(neighbor);
 			if (goal == Goal.MATE){
 				checkForMates(neighborRats);
 			}
-			if (aggressivenessFactor() > aggressivenessThreshold) {
-				def opponent = maxOneOf(neighborRats){ Rat rat -> rat.aggressivenessFactor() };
+			if (aggressivenessFactor > aggressivenessThreshold) {
+				def opponent = maxOneOf(neighborRats){ Rat rat -> rat.aggressivenessFactor };
 				if (opponent){
 					fight(opponent);
 					opponent.fight(this);
@@ -77,19 +85,15 @@ class Rat extends ReLogoTurtle {
 			}
 		}
 		if (goal == Goal.FOOD) {
-			for (neighbor in neighbors()) {
-				def food = filter({
-					Food f -> f.foodItems > f.ratsEating
-				}, foodOn(neighbor));
-				if (food) {
-					eat(food);
-				}
+			def food = first(foodHere());
+			if (food) {
+				eat(food);
 			}
 		}
 	}
 	
 	def resolveFight(){
-		if (random(physicalityFactor() + actionPartner.physicalityFactor()) > physicalityFactor()){
+		if (random(physicalityFactor + actionPartner.physicalityFactor) > physicalityFactor){
 			actionPartner.die();
 			mode = Mode.EXPLORE;
 		} else {
@@ -104,37 +108,53 @@ class Rat extends ReLogoTurtle {
 			if (rat.sex != sex && rat.goal == Goal.MATE && rat.mode == Mode.EXPLORE) {
 				mate(rat);
 				rat.mate(this);
+				setLabel("<3");
 				break;
 			}
 		}
 	}
 	
-	def hungerFactor() {
-		return timeSinceLastMeal / 1000.0;
+	def getHungerFactor() {
+		return timeSinceLastMeal / hungerDeath;
 	}
 	
-	def sexualDesireFactor() {
-		return age < 25000 ? 0 : 0.5 + 1/25000 * (age - 25000);
+	def getSexualDesireFactor() {
+		return age < maturityAge ? 0 : age / deathAge;
 	}
 	
-	def aggressivenessFactor() {
-		return (hungerFactor() + aggressivenessConstant) / 2.0;
+	def getAggressivenessFactor() {
+		return (hungerFactor + aggressivenessConstant) / 2.0;
 	}
 	
-	def physicalityFactor() {
-		return (age / 50000 + hungerFactor()) / 2.0;
+	def getPhysicalityFactor() {
+		return (age / deathAge + hungerFactor) / 2.0;
+	}
+	
+	def isOnIntersection() {
+		def streetN = CityGrid.getStreetN(getYcor(), worldHeight(), getMinPycor());
+		def aveN = CityGrid.getAvenueN(getXcor(), worldWidth(), getMinPxcor());
+		if (aveN < 0 || streetN < 0 || aveN > 2 || streetN > 2) {
+			return false;
+		}
+		def x = CityGrid.getAvenueX(aveN, worldHeight(), getMinPycor());
+		def y = CityGrid.getStreetY(streetN, worldWidth(), getMinPxcor());
+		def x_err = x - getXcor();
+		def y_err = y - getYcor();
+		if (x_err == 0 && y_err == 0)
+			return true;
+		return false;
 	}
 	
 	def mate(Rat rat) {
 		actionPartner = rat;
 		mode = Mode.MATE;
-		mateTime = defaultActionTime;
+		actionTime = defaultActionTime;
 	}
 	
 	def fight(Rat rat) {
 		actionPartner = rat;
 		mode = Mode.FIGHT;
-		fightTime = defaultActionTime;
+		actionTime = defaultActionTime;
 	}
 	
 	def eat(Food food){
@@ -142,6 +162,6 @@ class Rat extends ReLogoTurtle {
 			food.die();
 		}
 		mode = Mode.EAT;
-		eatTime = defaultActionTime;
+		actionTime = defaultActionTime;
 	}
 }

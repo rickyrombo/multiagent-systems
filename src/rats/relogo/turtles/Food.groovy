@@ -12,6 +12,5 @@ import repast.simphony.relogo.schedule.Setup;
 
 @Plural("Food")
 class Food extends ReLogoTurtle {
-	def ratsEating = 0;
 	def foodItems = foodCapacity;
 }
