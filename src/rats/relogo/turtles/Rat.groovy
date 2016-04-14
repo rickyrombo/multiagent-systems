@@ -32,6 +32,11 @@ class Rat extends ReLogoTurtle {
 	def final hungerDeath = 100;
 	def final maturityAge = 750;
 	def final defaultActionTime = 10;
+	
+	def numFights = 0;
+	def numMeals = 0;
+	def numMates = 0;
+	
 	def actionPartner;
 	
 	def age = 0;
@@ -131,15 +136,8 @@ class Rat extends ReLogoTurtle {
 	}
 	
 	def isOnIntersection() {
-		def streetN = CityGrid.getStreetN(getYcor(), worldHeight(), getMinPycor());
-		def aveN = CityGrid.getAvenueN(getXcor(), worldWidth(), getMinPxcor());
-		if (aveN < 0 || streetN < 0 || aveN > 2 || streetN > 2) {
-			return false;
-		}
-		def x = CityGrid.getAvenueX(aveN, worldHeight(), getMinPycor());
-		def y = CityGrid.getStreetY(streetN, worldWidth(), getMinPxcor());
-		def x_err = x - getXcor();
-		def y_err = y - getYcor();
+		def x_err = CityGrid.getAvenueXError(getXcor())
+		def y_err = CityGrid.getStreetYError(getYcor())
 		if (x_err == 0 && y_err == 0)
 			return true;
 		return false;
@@ -149,12 +147,14 @@ class Rat extends ReLogoTurtle {
 		actionPartner = rat;
 		mode = Mode.MATE;
 		actionTime = defaultActionTime;
+		numMates++;
 	}
 	
 	def fight(Rat rat) {
 		actionPartner = rat;
 		mode = Mode.FIGHT;
 		actionTime = defaultActionTime;
+		numFights++;
 	}
 	
 	def eat(Food food){
@@ -163,5 +163,6 @@ class Rat extends ReLogoTurtle {
 		}
 		mode = Mode.EAT;
 		actionTime = defaultActionTime;
+		numMeals++;
 	}
 }

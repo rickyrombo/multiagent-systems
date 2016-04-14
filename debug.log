@@ -293,3 +293,93 @@ Possible solutions: getIntersection(java.lang.Object)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
 	at rats.relogo.UserObserver.go(UserObserver.groovy:62)
 	... 10 more
+FATAL [Thread-7] 2016-04-14 01:56:35,908 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (0.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at rats.relogo.UserObserver$$FastClassByCGLIB$$6e00fc71.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: groovy.lang.MissingPropertyException: No such property: foodCapacity for class: rats.relogo.turtles.Food
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.unwrap(ScriptBytecodeAdapter.java:51)
+	at org.codehaus.groovy.runtime.callsite.GetEffectivePogoPropertySite.getProperty(GetEffectivePogoPropertySite.java:84)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGroovyObjectGetProperty(AbstractCallSite.java:231)
+	at rats.relogo.turtles.Food.<init>(Food.groovy)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at repast.simphony.relogo.factories.TurtleFactory.createTurtle(TurtleFactory.java:156)
+	at repast.simphony.relogo.factories.TurtleFactory.createTurtle(TurtleFactory.java:121)
+	at repast.simphony.relogo.AbstractObserver.crt(AbstractObserver.java:425)
+	at rats.ReLogoObserver.createFood(ReLogoObserver.java:217)
+	at rats.ReLogoObserver$createFood$0.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at rats.relogo.UserObserver.setup(UserObserver.groovy:38)
+	... 10 more
+FATAL [Thread-7] 2016-04-14 02:44:33,857 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (1.0)
+repast.simphony.data2.DataException: Error invoking method on object
+	at repast.simphony.data2.MethodDataSource.get(MethodDataSource.java:99)
+	at repast.simphony.data2.NonAggregateDataSet.record(NonAggregateDataSet.java:78)
+	at repast.simphony.data2.AbstractDataSetManager$ScheduledDataSet.execute(AbstractDataSetManager.java:119)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:238)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at rats.relogo.UserObserver$$FastClassByCGLIB$$6e00fc71.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.data2.MethodDataSource.get(MethodDataSource.java:97)
+	... 8 more
+Caused by: java.lang.NullPointerException: Cannot invoke method div() on null object
+	at org.codehaus.groovy.runtime.NullObject.invokeMethod(NullObject.java:88)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.NullCallSite.call(NullCallSite.java:32)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at rats.relogo.UserObserver.getAverageMatingDistanceFromFood(UserObserver.groovy:86)
+	... 11 more
+FATAL [Thread-7] 2016-04-14 02:46:24,823 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (1.0)
+repast.simphony.data2.DataException: Error invoking method on object
+	at repast.simphony.data2.MethodDataSource.get(MethodDataSource.java:99)
+	at repast.simphony.data2.NonAggregateDataSet.record(NonAggregateDataSet.java:78)
+	at repast.simphony.data2.AbstractDataSetManager$ScheduledDataSet.execute(AbstractDataSetManager.java:119)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:238)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at rats.relogo.UserObserver$$FastClassByCGLIB$$6e00fc71.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.data2.MethodDataSource.get(MethodDataSource.java:97)
+	... 8 more
+Caused by: java.lang.NullPointerException: Cannot invoke method div() on null object
+	at org.codehaus.groovy.runtime.NullObject.invokeMethod(NullObject.java:88)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.NullCallSite.call(NullCallSite.java:32)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at rats.relogo.UserObserver.getAverageMatingDistanceFromFood(UserObserver.groovy:89)
+	... 11 more
