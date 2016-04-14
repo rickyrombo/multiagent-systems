@@ -14,6 +14,14 @@ import rats.relogo.scenario.*;
 
 class UserObserver extends ReLogoObserver{
 
+	/**
+	 * Tell our city grid system the grid min coords and world size
+	 * clear anything in the grid
+	 * Set the shape of our rats and create two pairs on intersections
+	 * (they fell through the grate into their environment, two pairs is sufficient to start)
+	 * Initialize food every grate (no rats to have it all eaten)
+	 * @return
+	 */
 	@Setup
 	def setup() {
 		CityGrid.setWorldHeight(worldHeight());
@@ -47,6 +55,10 @@ class UserObserver extends ReLogoObserver{
 		}
 	}
 	
+	/**
+	 * Initializes rat position and heading
+	 * @param rat
+	 */
 	def setupMovement(Rat rat){
 		def x = Math.round(randomXcor() - worldWidth()/6);
 		def y = Math.round(randomYcor() - worldHeight()/4);
@@ -63,6 +75,13 @@ class UserObserver extends ReLogoObserver{
 		}
 	}
 	
+	/**
+	 * Ask rats to do their step
+	 * Check for food spawn
+	 * Count some statistics for analysis
+	 * Check for end conditions
+	 * @return
+	 */
 	@Go
 	def go() {
 		ask(rats()){
@@ -89,6 +108,10 @@ class UserObserver extends ReLogoObserver{
 	def distancesFromFood = [];
 	def matingCount = 0;
 	
+	/**
+	 * Used to grab for analysis
+	 * @return
+	 */
 	def getAverageMatingDistanceFromFood() {
 		if (matingCount == 0) {
 			return 0;
@@ -96,6 +119,10 @@ class UserObserver extends ReLogoObserver{
 		return distancesFromFood.sum() / matingCount;
 	}
 	
+	/**
+	 * Spawns food at empty intersection
+	 * @return
+	 */
 	def spawnFood() {
 		def seed = random(6);
 		def i = seed;
@@ -112,31 +139,4 @@ class UserObserver extends ReLogoObserver{
 			}
 		}
 	}
-	
-	/**
-	 * Add observer methods here. For example:
-
-		@Setup
-		def setup(){
-			clearAll()
-			createTurtles(10){
-				forward(random(10))
-			}
-		}
-		
-	 *
-	 * or
-	 * 	
-	
-		@Go
-		def go(){
-			ask(turtles()){
-				left(random(90))
-				right(random(90))
-				forward(random(10))
-			}
-		}
-
-	 */
-
 }

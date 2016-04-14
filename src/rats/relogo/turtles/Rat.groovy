@@ -11,6 +11,9 @@ import repast.simphony.relogo.schedule.Go;
 import repast.simphony.relogo.schedule.Setup;
 import rats.relogo.scenario.*;
 
+/**
+ * Main intelligent agent
+ */
 class Rat extends ReLogoTurtle {
 
 	public enum Sex {
@@ -45,6 +48,13 @@ class Rat extends ReLogoTurtle {
 	def Sex sex;
 	def Goal goal;
 	
+	/**
+	 * First checks death
+	 * Then checks for whether search goal is sex or food
+	 * Then if explore, explore
+	 * Check for action end conditions (IE is fight/eat/mate concluded?) and resolve as necessary
+	 * @return
+	 */
 	def step() {
 		if (age++ > deathAge || timeSinceLastMeal++ > hungerDeath){
 			die();
@@ -64,6 +74,8 @@ class Rat extends ReLogoTurtle {
 			mode = Mode.EXPLORE;
 		} else if(mode == Mode.MATE && actionTime-- == 0) {
 			mode = Mode.EXPLORE;
+			// each rat will spawn at least 1 but as many as 5 rats of the same gender as themselves
+			// this is what rats are like in real life (though not necessarily ensuring two members of opposite sex, granted)
 			hatchRats(random(4) + 1){
 				age = 0;
 				timeSinceLastMeal = 0;
@@ -71,6 +83,10 @@ class Rat extends ReLogoTurtle {
 		}
 	}
 	
+	/**
+	 * Moves rat, check for other rats, and for food
+	 * @return
+	 */
 	def explore() {
 		forward(1);
 		if (isOnIntersection()) {
@@ -97,6 +113,11 @@ class Rat extends ReLogoTurtle {
 		}
 	}
 	
+	/**
+	 * Check physicality and run probability to determine winner
+	 * Kill loser, spawn food
+	 * @return
+	 */
 	def resolveFight(){
 		if (random(physicalityFactor + actionPartner.physicalityFactor) > physicalityFactor){
 			actionPartner.die();
@@ -108,6 +129,9 @@ class Rat extends ReLogoTurtle {
 		}
 	}
 	
+	/**
+	 * Find neihboring rats seeking mates
+	 */
 	def checkForMates(rats) {
 		for (Rat rat in rats) {
 			if (rat.sex != sex && rat.goal == Goal.MATE && rat.mode == Mode.EXPLORE) {
@@ -119,22 +143,46 @@ class Rat extends ReLogoTurtle {
 		}
 	}
 	
+	/**
+	 * See proposal
+	 * @return
+	 */
 	def getHungerFactor() {
 		return timeSinceLastMeal / hungerDeath;
 	}
 	
+	/**
+	 * See proposal
+	 * @return
+	 */
 	def getSexualDesireFactor() {
 		return age < maturityAge ? 0 : age / deathAge;
 	}
 	
+	/**
+	 * See proposal
+	 * @return
+	 */
 	def getAggressivenessFactor() {
 		return (hungerFactor + aggressivenessConstant) / 2.0;
 	}
 	
+	/**
+	 * See proposal
+	 * @return
+	 */
 	def getPhysicalityFactor() {
 		return (age / deathAge + hungerFactor) / 2.0;
 	}
 	
+	/**
+	 * Check if the agent is on an intersection
+	 * because we spawn starting rats on intersection,
+	 * and because the intersections are all on whole pixels,
+	 * and because rats move in whole pixels,
+	 * can assume that error will be exactly 0 on top of intersection.
+	 * This is used for turning
+	 */
 	def isOnIntersection() {
 		def x_err = CityGrid.getAvenueXError(getXcor())
 		def y_err = CityGrid.getStreetYError(getYcor())
@@ -143,6 +191,11 @@ class Rat extends ReLogoTurtle {
 		return false;
 	}
 	
+	/**
+	 * Mate with the given rat
+	 * @param rat
+	 * @return
+	 */
 	def mate(Rat rat) {
 		actionPartner = rat;
 		mode = Mode.MATE;
@@ -150,6 +203,11 @@ class Rat extends ReLogoTurtle {
 		numMates++;
 	}
 	
+	/**
+	 * Fight the given rat
+	 * @param rat
+	 * @return
+	 */
 	def fight(Rat rat) {
 		actionPartner = rat;
 		mode = Mode.FIGHT;
@@ -157,6 +215,11 @@ class Rat extends ReLogoTurtle {
 		numFights++;
 	}
 	
+	/**
+	 * Eat the food
+	 * @param food
+	 * @return
+	 */
 	def eat(Food food){
 		if (--food.foodItems <= 0) {
 			food.die();

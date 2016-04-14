@@ -9,7 +9,10 @@ import repast.simphony.relogo.Utility;
 import repast.simphony.relogo.UtilityG;
 import repast.simphony.relogo.schedule.Go;
 import repast.simphony.relogo.schedule.Setup;
-
+/**
+ * Dumb agent
+ * Has a limited number of food items
+ */
 @Plural("Food")
 class Food extends ReLogoTurtle {
 	def foodItems = foodCapacity;
