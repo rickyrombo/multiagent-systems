@@ -74,7 +74,7 @@ class UserObserver extends ReLogoObserver{
 		}
 		ask(rats()){
 			if(mode == Rat.Mode.MATE && actionTime == 10) {
-				distancesFromFood << CityGrid.getAvenueXError(getXcor()) + CityGrid.getStreetYError(getYcor());
+				distancesFromFood << Math.abs(CityGrid.getAvenueXError(getXcor()) + CityGrid.getStreetYError(getYcor()));
 				matingCount++;
 			}
 		}
