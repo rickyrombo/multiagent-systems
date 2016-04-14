@@ -642,3 +642,4 @@
 2016-04-14 03:32:48,983 - Velocimacro : initialization complete.
 2016-04-14 03:32:48,983 - Velocity successfully started.
 2016-04-14 03:33:24,149 - ResourceManager : found repast/simphony/scenario/Scenario.vt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2016-04-14 03:40:35,569 - ResourceManager : found repast/simphony/scenario/Scenario.vt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
