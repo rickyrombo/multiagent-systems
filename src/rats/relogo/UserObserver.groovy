@@ -78,7 +78,10 @@ class UserObserver extends ReLogoObserver{
 				matingCount++;
 			}
 		}
-		if (count(rats()) <= 1 || ticks() >= 50000) {
+		if (count(filter({ it.sex == Rat.Sex.MALE },rats())) == 0 || 
+			count(filter({ it.sex == Rat.Sex.FEMALE }, rats())) == 0 || 
+			ticks() >= 50000) 
+		{
 			RunEnvironment.getInstance().endRun();
 		}
 	}

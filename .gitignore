@@ -1,3 +1,5 @@
+*.csv
+
 .metadata
 bin/
 tmp/
