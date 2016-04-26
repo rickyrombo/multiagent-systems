@@ -7,12 +7,12 @@
       <string>rats.style.TurtleStyle</string>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
-      <string>rats.style.WayPointStyle</string>
-    </entry>
-    <entry>
       <string>repast.simphony.relogo.BasePatch</string>
       <string>rats.style.PatchStyle</string>
+    </entry>
+    <entry>
+      <string>repast.simphony.relogo.WayPoint</string>
+      <string>rats.style.WayPointStyle</string>
     </entry>
   </styles>
   <editedStyles>
@@ -21,21 +21,21 @@
       <null/>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
+      <string>repast.simphony.relogo.BasePatch</string>
       <null/>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.BasePatch</string>
+      <string>repast.simphony.relogo.WayPoint</string>
       <null/>
     </entry>
   </editedStyles>
   <netStyles>
     <entry>
-      <string>DirectedLinks</string>
+      <string>UserLink</string>
       <string>rats.style.LinkStyle</string>
     </entry>
     <entry>
-      <string>UserLink</string>
+      <string>DirectedLinks</string>
       <string>rats.style.LinkStyle</string>
     </entry>
     <entry>
@@ -49,11 +49,11 @@
   </netStyles>
   <editedNetStyles>
     <entry>
-      <string>DirectedLinks</string>
+      <string>UserLink</string>
       <null/>
     </entry>
     <entry>
-      <string>UserLink</string>
+      <string>DirectedLinks</string>
       <null/>
     </entry>
     <entry>
@@ -84,12 +84,12 @@
       <int>2</int>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
-      <int>0</int>
-    </entry>
-    <entry>
       <string>repast.simphony.relogo.BasePatch</string>
       <int>1</int>
+    </entry>
+    <entry>
+      <string>repast.simphony.relogo.WayPoint</string>
+      <int>0</int>
     </entry>
   </layerOrder>
   <projections>
@@ -131,6 +131,31 @@
       </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
     </entry>
     <entry>
+      <string>Space2d</string>
+      <repast.simphony.visualization.continuous.ContinuousProjectionDescriptor>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
+        <props>
+          <entry>
+            <string>repast.simphony.visualization.continuous.ContinuousDecorator</string>
+            <map>
+              <entry>
+                <string>COLOR</string>
+                <int>-16777216</int>
+              </entry>
+              <entry>
+                <string>UNIT_SIZE</string>
+                <float>15.0</float>
+              </entry>
+              <entry>
+                <string>SHOW</string>
+                <boolean>false</boolean>
+              </entry>
+            </map>
+          </entry>
+        </props>
+      </repast.simphony.visualization.continuous.ContinuousProjectionDescriptor>
+    </entry>
+    <entry>
       <string>DirectedLinks</string>
       <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
         <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[2]"/>
@@ -150,31 +175,6 @@
         <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[4]"/>
         <props/>
       </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-    </entry>
-    <entry>
-      <string>Space2d</string>
-      <repast.simphony.visualization.continuous.ContinuousProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
-        <props>
-          <entry>
-            <string>repast.simphony.visualization.continuous.ContinuousDecorator</string>
-            <map>
-              <entry>
-                <string>UNIT_SIZE</string>
-                <float>15.0</float>
-              </entry>
-              <entry>
-                <string>SHOW</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>COLOR</string>
-                <int>-16777216</int>
-              </entry>
-            </map>
-          </entry>
-        </props>
-      </repast.simphony.visualization.continuous.ContinuousProjectionDescriptor>
     </entry>
   </projectionDescriptors>
   <props/>
