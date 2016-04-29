@@ -5,6 +5,9 @@
 	<parameter name="default_observer_minPxcor" displayName="default_observer_minPxcor" type="int" defaultValue="-12"/>
 	<parameter name="default_observer_maxPxcor" displayName="default_observer_maxPxcor" type="int" defaultValue="12"/>
 	<parameter name="default_observer_minPycor" displayName="default_observer_minPycor" type="int" defaultValue="-9"/>
-	<parameter name="default_observer_maxPycor" displayName="default_observer_maxPycor" type="int" defaultValue="9"/>
+	<parameter name="default_observer_maxPycor" displayName="default_observer_maxPycor" type="int" defaultValue="9"></parameter>
+	<parameter name="aggressivenessThreshold" displayName="aggressivenessThreshold" type="float" defaultValue="0.5"></parameter>
+	<parameter name="foodCapacity" displayName="foodCapacity" type="int" defaultValue="3"></parameter>
+	<parameter name="foodSourceSpawnFrequency" displayName="foodSourceSpawnFrequency" type="int" defaultValue="250"></parameter>
 
 </parameters>

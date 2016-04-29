@@ -1,0 +1,16 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>RatData</name>
+  <dataSet>Rat Stats</dataSet>
+  <delimiter>,</delimiter>
+  <format>LINE</format>
+  <sourceIds class="linked-hash-set">
+    <string>tick</string>
+    <string>Average Age</string>
+    <string>Population Size</string>
+    <string>Average Fight Count</string>
+    <string>Average Mated</string>
+    <string>Averagel Meals Eaten</string>
+  </sourceIds>
+  <fileName>RatData.csv</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>

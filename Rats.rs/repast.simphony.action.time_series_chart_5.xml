@@ -1,0 +1,86 @@
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
+  <name>Time Series Chart</name>
+  <dataSet>Rat Stats</dataSet>
+  <xAxisLabel>Tick Count</xAxisLabel>
+  <yAxisLabel></yAxisLabel>
+  <chartTitle>Rat Statistics</chartTitle>
+  <type>TIME_SERIES</type>
+  <background>
+    <red>192</red>
+    <green>192</green>
+    <blue>192</blue>
+    <alpha>255</alpha>
+  </background>
+  <gridLineColor>
+    <red>255</red>
+    <green>255</green>
+    <blue>255</blue>
+    <alpha>255</alpha>
+  </gridLineColor>
+  <showGrid>true</showGrid>
+  <showLegend>true</showLegend>
+  <seriesIds>
+    <entry>
+      <string>Averagel Meals Eaten</string>
+      <SeriesData>
+        <label>Averagel Meals Eaten</label>
+        <color>
+          <red>255</red>
+          <green>200</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Average Age</string>
+      <SeriesData>
+        <label>Average Age</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Population Size</string>
+      <SeriesData>
+        <label>Population Size</label>
+        <color>
+          <red>0</red>
+          <green>0</green>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Average Mated</string>
+      <SeriesData>
+        <label>Average Mated</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Average Fight Count</string>
+      <SeriesData>
+        <label>Average Fight Count</label>
+        <color>
+          <red>0</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+  </seriesIds>
+  <dataValueIds/>
+  <plotRangeLength>-1</plotRangeLength>
+</repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

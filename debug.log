@@ -408,3 +408,74 @@ Possible solutions: ct(), wait(), ca(), cp(), food(), go()
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
 	at rats.relogo.UserObserver.go(UserObserver.groovy:81)
 	... 10 more
+INFO  [AWT-EventQueue-0] 2016-04-25 23:54:14,119 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: D:\Documents\Repast\Rats\output\config.props
+INFO  [AWT-EventQueue-0] 2016-04-25 23:54:14,283 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	D:\Documents\Repast\Rats\batch\batch_params.xml to
+	C:\Users\RICKYR~1\AppData\Local\Temp\unrolledParamFile.txt
+INFO  [AWT-EventQueue-0] 2016-04-25 23:54:33,774 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: D:\Documents\Repast\Rats\output\config.props
+INFO  [AWT-EventQueue-0] 2016-04-25 23:54:33,776 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	D:\Documents\Repast\Rats\batch\batch_params.xml to
+	C:\Users\RICKYR~1\AppData\Local\Temp\unrolledParamFile.txt
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-25 23:54:54,797 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally C:\Users\RICKYR~1\AppData\Local\Temp\RickyRombo_localhost2045801089295075402.zip to 
+C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 ...
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-25 23:54:54,843 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-25 23:54:54,844 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0840
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-25 23:54:54,845 repast.simphony.batch.ssh.LocalSession - Unzipping model C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806\RickyRombo_localhost2045801089295075402.zip
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-25 23:54:56,190 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2016-04-25 23:55:56,195 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-25 23:56:56,195 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-25 23:57:56,196 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-25 23:58:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-25 23:59:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:00:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:01:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:02:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:03:56,197 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:04:56,198 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:05:56,198 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:06:56,198 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:07:56,198 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:08:56,198 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:09:56,199 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  no
+INFO  [pool-3-thread-1] 2016-04-26 00:10:56,199 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806 for DONE:  yes
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-26 00:10:56,200 repast.simphony.batch.ssh.SessionsDriver - Run Time: 16.0226
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-26 00:10:56,213 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461646489806
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-26 00:10:56,224 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into D:/Documents/Repast/Rats/output
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-26 00:10:59,406 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0534
+INFO  [SwingWorker-pool-2-thread-1] 2016-04-26 00:10:59,406 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 16.1604
+INFO  [AWT-EventQueue-0] 2016-04-26 00:54:37,389 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: D:\Documents\Repast\Rats\output\config.props
+INFO  [AWT-EventQueue-0] 2016-04-26 00:54:37,476 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	D:\Documents\Repast\Rats\batch\batch_params.xml to
+	C:\Users\RICKYR~1\AppData\Local\Temp\unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:54:49,367 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally C:\Users\RICKYR~1\AppData\Local\Temp\RickyRombo_localhost8673147497203098282.zip to 
+C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461650084351 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:54:49,416 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:54:49,416 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0844
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:54:49,417 repast.simphony.batch.ssh.LocalSession - Unzipping model C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461650084351\RickyRombo_localhost8673147497203098282.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:54:50,740 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-26 00:55:50,745 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461650084351 for DONE:  no
+INFO  [pool-2-thread-1] 2016-04-26 00:56:50,746 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461650084351 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:56:50,747 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.0222
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:56:50,761 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461650084351
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:56:50,775 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into D:/Documents/Repast/Rats/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:56:51,258 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0085
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 00:56:51,258 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.1152
+INFO  [AWT-EventQueue-0] 2016-04-26 04:11:47,883 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: D:\Documents\Repast\Rats\output\config.props
+INFO  [AWT-EventQueue-0] 2016-04-26 04:11:47,964 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	D:\Documents\Repast\Rats\batch\batch_params.xml to
+	C:\Users\RICKYR~1\AppData\Local\Temp\unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:12:02,824 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally C:\Users\RICKYR~1\AppData\Local\Temp\RickyRombo_localhost3035607955203440756.zip to 
+C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461661917784 ...
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:12:02,876 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:12:02,876 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0849
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:12:02,877 repast.simphony.batch.ssh.LocalSession - Unzipping model C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461661917784\RickyRombo_localhost3035607955203440756.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:12:04,215 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2016-04-26 04:13:04,221 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461661917784 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:13:04,221 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0224
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:13:04,234 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in C:\Users\RICKYR~1\AppData\Local\Temp\simphony_model_1461661917784
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:13:04,242 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into D:/Documents/Repast/Rats/output
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:13:04,401 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0030
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-26 04:13:04,401 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.1104
