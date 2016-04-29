@@ -30,7 +30,7 @@ class UserObserver extends ReLogoObserver{
 		CityGrid.setMinYcor(getMinPycor());
 		clearAll();
 		setDefaultShape(Rat, "rabbit");
-		setDefaultShape(Food, "plant")
+		setDefaultShape(Food, "plant");
 		createRats(2){
 			setLabel("Adam")
 			setColor(blue());
@@ -47,6 +47,7 @@ class UserObserver extends ReLogoObserver{
 			age = random(1500)
 			aggressivenessConstant = Math.max(0 , Math.min(1, randomNormal(0.5, 0.166666)));
 		}
+		
 		for (int i = 0; i < 6; i++){
 			createFood(1){
 				def intersection = CityGrid.getIntersection(i);
@@ -94,7 +95,13 @@ class UserObserver extends ReLogoObserver{
 		ask(rats()){
 			if(mode == Rat.Mode.MATE && actionTime == 10) {
 				distancesFromFood << Math.abs(CityGrid.getAvenueXError(getXcor()) + CityGrid.getStreetYError(getYcor()));
+				matingDistanceTraveled << it.timeSinceLastMeal;
 				matingCount++;
+			}
+			else if(mode == Rat.Mode.FIGHT && actionTime == 10) {
+				distancesFromFight << Math.abs(CityGrid.getAvenueXError(getXcor()) + CityGrid.getStreetYError(getYcor()));
+				fightDistanceTraveled << it.timeSinceLastMeal;
+				fightCount++;
 			}
 		}
 		if (count(filter({ it.sex == Rat.Sex.MALE },rats())) == 0 || 
@@ -107,6 +114,10 @@ class UserObserver extends ReLogoObserver{
 	
 	def distancesFromFood = [];
 	def matingCount = 0;
+	def distancesFromFight = [];
+	def fightCount = 0;
+	def matingDistanceTraveled = [];
+	def fightDistanceTraveled = [];
 	
 	/**
 	 * Used to grab for analysis
@@ -119,6 +130,39 @@ class UserObserver extends ReLogoObserver{
 		return distancesFromFood.sum() / matingCount;
 	}
 	
+	/**
+	 * Used to grab for analysis
+	 * @return
+	 */
+	def getAverageFightingDistanceFromFood() {
+		if (fightCount == 0) {
+			return 0;
+		}
+		return distancesFromFight.sum() / fightCount;
+	}
+
+	/**
+	 * Used to grab for analysis
+	 * @return
+	 */
+	def getAverageMatingDistanceFromLastMeal() {
+		if (matingCount == 0) {
+			return 0;
+		}
+		return matingDistanceTraveled.sum() / matingCount;
+	}
+	
+	/**
+	 * Used to grab for analysis
+	 * @return
+	 */
+	def getAverageFightingDistanceFromLastMeal() {
+		if (fightCount == 0) {
+			return 0;
+		}
+		return fightDistanceTraveled.sum() / fightCount;
+	}
+		
 	/**
 	 * Spawns food at empty intersection
 	 * @return

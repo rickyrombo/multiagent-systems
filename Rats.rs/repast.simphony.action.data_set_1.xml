@@ -1,0 +1,71 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>Observer End Results</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>rats.relogo.UserObserver</sourceType>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>1.0</start>
+    <interval>0.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-2121742818</hashCode>
+  </scheduleParams>
+  <atEnd>true</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>AverageMatingDistanceFromFood</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>AverageMatingDistanceFromFood</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getAverageMatingDistanceFromFood</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>MatingCount</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>MatingCount</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getMatingCount</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>AverageFightingDistanceFromFood</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>AverageFightingDistanceFromFood</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getAverageFightingDistanceFromFood</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>FightCount</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>FightCount</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getFightCount</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>AverageMatingDistanceFromLastMeal</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>AverageMatingDistanceFromLastMeal</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getAverageMatingDistanceFromLastMeal</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>AverageFightingDistanceFromLastMeal</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>AverageFightingDistanceFromLastMeal</id>
+        <className>rats.relogo.UserObserver</className>
+        <methodName>getAverageFightingDistanceFromLastMeal</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

@@ -7,12 +7,12 @@
       <string>rats.style.TurtleStyle</string>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
-      <string>rats.style.WayPointStyle</string>
-    </entry>
-    <entry>
       <string>repast.simphony.relogo.BasePatch</string>
       <string>rats.style.PatchStyle</string>
+    </entry>
+    <entry>
+      <string>repast.simphony.relogo.WayPoint</string>
+      <string>rats.style.WayPointStyle</string>
     </entry>
   </styles>
   <editedStyles>
@@ -21,11 +21,11 @@
       <null/>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
+      <string>repast.simphony.relogo.BasePatch</string>
       <null/>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.BasePatch</string>
+      <string>repast.simphony.relogo.WayPoint</string>
       <null/>
     </entry>
   </editedStyles>
@@ -84,12 +84,12 @@
       <int>2</int>
     </entry>
     <entry>
-      <string>repast.simphony.relogo.WayPoint</string>
-      <int>0</int>
-    </entry>
-    <entry>
       <string>repast.simphony.relogo.BasePatch</string>
       <int>1</int>
+    </entry>
+    <entry>
+      <string>repast.simphony.relogo.WayPoint</string>
+      <int>0</int>
     </entry>
   </layerOrder>
   <projections>
@@ -160,6 +160,10 @@
             <string>repast.simphony.visualization.continuous.ContinuousDecorator</string>
             <map>
               <entry>
+                <string>COLOR</string>
+                <int>-16777216</int>
+              </entry>
+              <entry>
                 <string>UNIT_SIZE</string>
                 <float>15.0</float>
               </entry>
@@ -167,14 +171,31 @@
                 <string>SHOW</string>
                 <boolean>false</boolean>
               </entry>
-              <entry>
-                <string>COLOR</string>
-                <int>-16777216</int>
-              </entry>
             </map>
           </entry>
         </props>
       </repast.simphony.visualization.continuous.ContinuousProjectionDescriptor>
+    </entry>
+    <entry>
+      <string>DirectedLinks</string>
+      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[2]"/>
+        <props/>
+      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+    </entry>
+    <entry>
+      <string>UndirectedLinks</string>
+      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[3]"/>
+        <props/>
+      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+    </entry>
+    <entry>
+      <string>Tracking Network</string>
+      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[4]"/>
+        <props/>
+      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
     </entry>
   </projectionDescriptors>
   <props/>

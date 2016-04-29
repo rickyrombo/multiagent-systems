@@ -1,16 +1,17 @@
 <repast.simphony.data2.engine.FileSinkDescriptor>
-  <name>RatData</name>
-  <dataSet>Rat Stats</dataSet>
+  <name>Average Distances</name>
+  <dataSet>Observer End Results</dataSet>
   <delimiter>,</delimiter>
   <format>LINE</format>
   <sourceIds class="linked-hash-set">
     <string>tick</string>
-    <string>Average Age</string>
-    <string>Population Size</string>
-    <string>Average Fight Count</string>
-    <string>Average Mated</string>
-    <string>Averagel Meals Eaten</string>
+    <string>AverageMatingDistanceFromFood</string>
+    <string>MatingCount</string>
+    <string>AverageFightingDistanceFromFood</string>
+    <string>FightCount</string>
+    <string>AverageMatingDistanceFromLastMeal</string>
+    <string>AverageFightingDistanceFromLastMeal</string>
   </sourceIds>
-  <fileName>RatData.csv</fileName>
+  <fileName>AverageDistances.csv</fileName>
   <addTimeStamp>true</addTimeStamp>
 </repast.simphony.data2.engine.FileSinkDescriptor>
